@@ -1,0 +1,164 @@
+#app {
+	font-family: Avenir, Helvetica, Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-align: center;
+	color: #2c3e50;
+
+	.drawer_lists {
+		// display: none;
+	}
+
+	h1 {
+		color: red;
+		margin-top: 15px;
+		margin-bottom: 15px;
+	}
+
+	h2 {
+		font-family: "Playfair Display", sans-serif;
+	}
+
+	.controls_top_right {
+		position: absolute;
+		top: 150px;
+		right: 15px;
+		// z-index: 1000;
+	}
+
+	.header_logos {
+		max-width: 100%;
+		text-align: right;
+		@media (min-width: 960px) {
+			position: absolute;
+			right: 25px;
+			top: 5px;
+		}
+		img {
+			position: relative;
+			width: 100px;
+			height: 100px;
+			margin: 3px;
+			border-radius: 7px;
+			// https://www.w3schools.com/cssref/css3_pr_box-shadow.asp
+			// this is more resource-optimized approach
+			// https://tobiasahlin.com/blog/how-to-animate-box-shadow/
+			// DOESN'T work?! ::before when hovered in dev-tool doesn't show a blue shaddow and in the example: https://alligator.io/css/transition-box-shadows/ it does
+			box-shadow: 3px 3px 3px -1px #aaa;
+			/* Pre-render the bigger shadow, but hide it */
+			&::before {
+				box-shadow: 3px 3px 5px -1px #aaa;
+				opacity: 1;
+				transition: opacity 0.3s ease-in-out;
+				content: "";
+				position: absolute;
+				z-index: -1;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				border-radius: 7px;
+			}
+			/* Transition to showing the bigger shadow on hover */
+			&:hover::before {
+				opacity: 1;
+			}
+		}
+
+		.annotata-logo {
+			display: inline;
+		}
+
+		.litterra-logo {
+			display: inline;
+			opacity: 0.3;
+		}
+
+		.colabo-logo {
+			display: inline;
+			opacity: 0.3;
+		}
+	}
+
+	.footer_logos {
+		max-width: 500px;
+		@media (min-width: 960px) {
+			position: fixed;
+			right: 25px;
+			bottom: 5px;
+		}
+		text-align: right;
+		// z-index: -200;
+		.info {
+			color: blue;
+			font-style: italic;
+			text-align: right;
+			display: block;
+		}
+		// div {
+		// 	display: inline-block;
+		// }
+		img {
+			position: relative;
+			// width: 75px;
+			height: 50px;
+			margin: 3px;
+			border-radius: 7px;
+			// https://www.w3schools.com/cssref/css3_pr_box-shadow.asp
+			// this is more resource-optimized approach
+			// https://tobiasahlin.com/blog/how-to-animate-box-shadow/
+			// DOESN'T work?! ::before when hovered in dev-tool doesn't show a blue shaddow and in the example: https://alligator.io/css/transition-box-shadows/ it does
+			box-shadow: 3px 3px 3px -1px #aaa;
+			/* Pre-render the bigger shadow, but hide it */
+			&::before {
+				box-shadow: 3px 3px 5px -1px #aaa;
+				opacity: 1;
+				transition: opacity 0.3s ease-in-out;
+				content: "";
+				position: absolute;
+				z-index: -1;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				border-radius: 7px;
+			}
+			/* Transition to showing the bigger shadow on hover */
+			&:hover::before {
+				opacity: 1;
+			}
+		}
+
+		.colabo-space-logo {
+			display: inline;
+			opacity: 0.5;
+		}
+
+		.litterra-logo {
+			display: inline;
+			opacity: 0.5;
+		}
+
+		.colaboflow-logo {
+			display: inline;
+			opacity: 0.5;
+		}
+		.datatalks-logo {
+			display: inline;
+			opacity: 0.5;
+		}
+	}
+}
+
+#nav {
+	padding: 30px;
+
+	a {
+		font-weight: bold;
+		color: #2c3e50;
+
+		&.router-link-exact-active {
+			color: #42b983;
+		}
+	}
+}
